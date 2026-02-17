@@ -1,3 +1,481 @@
-<html>
-  <body> Hello World!</body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neetu Vijayananda | Software Engineer</title>
+    <meta
+      name="description"
+      content="Neetu Vijayananda — Software Engineer specializing in cloud-native systems, data engineering, and high-scale backend services."
+    />
+    <meta property="og:title" content="Neetu Vijayananda | Software Engineer" />
+    <meta
+      property="og:description"
+      content="Cloud-native backend • Data engineering • AWS • Kubernetes • Python/Go/Java"
+    />
+    <meta name="theme-color" content="#0b0f1a" />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <!-- Background blobs -->
+    <div class="bg">
+      <div class="blob b1"></div>
+      <div class="blob b2"></div>
+      <div class="blob b3"></div>
+      <div class="grain"></div>
+    </div>
+
+    <!-- Top nav -->
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="brandDot"></span>
+        <span>Neetu</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="topActions">
+        <button id="themeBtn" class="chip" type="button" aria-label="Toggle theme">
+          <span class="chipIcon" aria-hidden="true">☾</span>
+          <span class="chipText">Theme</span>
+        </button>
+        <a class="chip primary" href="assets/resume.pdf" target="_blank" rel="noopener">
+          Download Résumé
+        </a>
+        <button id="menuBtn" class="iconBtn" type="button" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile drawer -->
+    <aside id="drawer" class="drawer" aria-hidden="true">
+      <div class="drawerTop">
+        <span class="drawerTitle">Menu</span>
+        <button id="closeDrawerBtn" class="iconBtn" type="button" aria-label="Close menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div class="drawerLinks">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a class="drawerResume" href="assets/resume.pdf" target="_blank" rel="noopener">
+          Download Résumé
+        </a>
+      </div>
+    </aside>
+
+    <main id="top">
+      <!-- Hero -->
+      <section class="hero container">
+        <div class="heroLeft">
+          <p class="eyebrow">Software Engineer</p>
+          <h1 class="title">
+            Building <span class="grad">high-scale</span> cloud-native systems &
+            data platforms.
+          </h1>
+          <p class="subtitle">
+            I design fault-tolerant backend services, data pipelines, and APIs that
+            turn complex infrastructure into reliable products.
+          </p>
+
+          <div class="heroCTA">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn" href="#contact">Contact</a>
+          </div>
+
+          <div class="heroMeta">
+            <a href="mailto:neetuvijayananda@gmail.com">neetuvijayananda@gmail.com</a>
+            <span class="dot">•</span>
+            <a href="tel:+12407561861">+1 (240) 756-1861</a>
+            <span class="dot">•</span>
+            <a href="https://www.linkedin.com/in/neetuvijayananda/" target="_blank" rel="noopener">
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <div class="heroRight" aria-hidden="true">
+          <div class="frame">
+            <div class="frameInner">
+              <div class="ring r1"></div>
+              <div class="ring r2"></div>
+              <div class="ring r3"></div>
+              <div class="stat">
+                <div class="statNum">Millions</div>
+                <div class="statLabel">data points / month processed</div>
+              </div>
+              <div class="stat s2">
+                <div class="statNum">50K+</div>
+                <div class="statLabel">records unified into one platform</div>
+              </div>
+              <div class="stat s3">
+                <div class="statNum">35%</div>
+                <div class="statLabel">latency reduction via indexing</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="section container">
+        <div class="sectionHead">
+          <h2>About</h2>
+          <p>
+            Software Engineer specializing in high-scale enterprise systems,
+            cloud-native architecture, and data engineering. :contentReference[oaicite:1]{index=1}
+          </p>
+        </div>
+
+        <div class="grid2">
+          <article class="card">
+            <h3>What I do</h3>
+            <ul class="bullets">
+              <li>Distributed backend services (Python/Go/Java) with reliability focus</li>
+              <li>Data platforms, ETL pipelines, streaming & operational analytics</li>
+              <li>Cloud & DevOps automation: AWS, Kubernetes, Terraform, CI/CD</li>
+              <li>API design: REST, gRPC, auth patterns, performance tuning</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Highlights</h3>
+            <div class="pillRow">
+              <span class="pill">AWS</span>
+              <span class="pill">Kubernetes</span>
+              <span class="pill">Terraform</span>
+              <span class="pill">Python</span>
+              <span class="pill">Go</span>
+              <span class="pill">Java</span>
+              <span class="pill">PostgreSQL</span>
+              <span class="pill">MySQL</span>
+              <span class="pill">Kafka</span>
+              <span class="pill">gRPC</span>
+              <span class="pill">CI/CD</span>
+            </div>
+
+            <div class="mini">
+              <div class="miniK">Location</div>
+              <div class="miniV">USA (open to opportunities)</div>
+              <div class="miniK">Focus</div>
+              <div class="miniV">Backend • Data • Cloud</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section id="experience" class="section container">
+        <div class="sectionHead">
+          <h2>Experience</h2>
+          <p>Recent roles and impact. :contentReference[oaicite:2]{index=2}</p>
+        </div>
+
+        <div class="timeline">
+          <div class="tItem card">
+            <div class="tTop">
+              <div>
+                <h3>Eli Lilly — Software Developer</h3>
+                <p class="muted">June 2025 – Present • USA</p>
+              </div>
+              <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">Go</span>
+                <span class="tag">AWS</span>
+                <span class="tag">Kubernetes</span>
+              </div>
+            </div>
+            <ul class="bullets">
+              <li>Designed distributed backend services processing <b>millions</b> of data points monthly.</li>
+              <li>Built a code analysis tool to automate technical docs generation (reduced manual effort ~40%).</li>
+              <li>Architected a centralized Data Intelligence Platform, unifying <b>50K+</b> records.</li>
+              <li>Improved query latency by ~35% using indexing and database tuning.</li>
+              <li>Automated CI/CD & infra with Helm, Terraform, and Kubernetes (weeks → hours release cycle).</li>
+              <li>Integrated Splunk & dashboards to cut troubleshooting time by ~30%.</li>
+            </ul>
+          </div>
+
+          <div class="tItem card">
+            <div class="tTop">
+              <div>
+                <h3>Karunadu Technologies — Software Engineer</h3>
+                <p class="muted">Aug 2022 – May 2023 • India</p>
+              </div>
+              <div class="tags">
+                <span class="tag">Django</span>
+                <span class="tag">FastAPI</span>
+                <span class="tag">SQL</span>
+                <span class="tag">AWS</span>
+              </div>
+            </div>
+            <ul class="bullets">
+              <li>Built a high-throughput document search engine; reduced lookup times by ~40% (500K+ records).</li>
+              <li>Designed REST APIs processing 50K+ daily transactions; improved response times ~35%.</li>
+              <li>Migrated workflows to AWS with auto-scaling for peak reliability.</li>
+              <li>Implemented Jenkins pipelines; reduced manual QA cycles by ~60%.</li>
+            </ul>
+          </div>
+
+          <div class="tItem card">
+            <div class="tTop">
+              <div>
+                <h3>Compsoft Technologies — Full-Stack Developer Intern</h3>
+                <p class="muted">Jan 2022 – Jul 2022 • India</p>
+              </div>
+              <div class="tags">
+                <span class="tag">React</span>
+                <span class="tag">Redux</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Java</span>
+              </div>
+            </div>
+            <ul class="bullets">
+              <li>Developed reusable React components and standardized Redux patterns (faster delivery ~30%).</li>
+              <li>Improved UX via lazy loading; reduced page load times by ~35%.</li>
+              <li>Achieved 85%+ unit test coverage, reducing production bug rates.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="section container">
+        <div class="sectionHead">
+          <h2>Projects</h2>
+          <p>Selected builds and systems work. :contentReference[oaicite:3]{index=3}</p>
+        </div>
+
+        <div class="cards3">
+          <article class="card project">
+            <div class="projectTop">
+              <h3>Enterprise Helpdesk Ticketing System</h3>
+              <span class="badge">Spring Boot</span>
+            </div>
+            <p class="muted">
+              Multi-tenant ticketing platform supporting 10K+ active tickets with secure APIs.
+            </p>
+            <ul class="bullets">
+              <li>JWT authentication + RBAC for privacy across departments</li>
+              <li>Redis caching to reduce database load and improve response times</li>
+              <li>Docker + Jenkins pipeline for repeatable releases</li>
+            </ul>
+            <div class="projectTags">
+              <span class="pill">Java</span><span class="pill">MySQL</span><span class="pill">Redis</span><span class="pill">Docker</span>
+            </div>
+            <div class="projectLinks">
+              <a class="link" href="#" onclick="return false;" aria-disabled="true" title="Add your GitHub link">
+                GitHub (add link)
+              </a>
+              <a class="link" href="#" onclick="return false;" aria-disabled="true" title="Add demo link if any">
+                Live Demo (optional)
+              </a>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="projectTop">
+              <h3>Real-Time Health Data Streaming Pipeline</h3>
+              <span class="badge">Kafka</span>
+            </div>
+            <p class="muted">
+              Fault-tolerant ingestion pipeline processing 5K+ events/day with near real-time consistency.
+            </p>
+            <ul class="bullets">
+              <li>Kafka ingestion, secure storage in S3 + PostgreSQL</li>
+              <li>Scalable backend architecture and secure retrieval</li>
+              <li>Designed for resiliency and operational visibility</li>
+            </ul>
+            <div class="projectTags">
+              <span class="pill">Python</span><span class="pill">Django</span><span class="pill">Kafka</span><span class="pill">AWS S3</span><span class="pill">PostgreSQL</span>
+            </div>
+            <div class="projectLinks">
+              <a class="link" href="#" onclick="return false;" aria-disabled="true" title="Add your GitHub link">
+                GitHub (add link)
+              </a>
+              <a class="link" href="#" onclick="return false;" aria-disabled="true" title="Add architecture doc link if any">
+                Case Study (optional)
+              </a>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="projectTop">
+              <h3>Code Analysis → Auto Documentation Tool</h3>
+              <span class="badge">Automation</span>
+            </div>
+            <p class="muted">
+              Parses source code and generates technical documentation automatically.
+            </p>
+            <ul class="bullets">
+              <li>Reduced documentation manual effort by ~40%</li>
+              <li>Designed for maintainability and team reuse</li>
+              <li>Works alongside CI workflows</li>
+            </ul>
+            <div class="projectTags">
+              <span class="pill">Python</span><span class="pill">CI/CD</span><span class="pill">Parsing</span>
+            </div>
+            <div class="projectLinks">
+              <a class="link" href="#" onclick="return false;" aria-disabled="true" title="Add your GitHub link">
+                GitHub (add link)
+              </a>
+              <a class="link" href="#" onclick="return false;" aria-disabled="true" title="Add details link if any">
+                Details (optional)
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="section container">
+        <div class="sectionHead">
+          <h2>Skills</h2>
+          <p>Tools and technologies I work with. :contentReference[oaicite:4]{index=4}</p>
+        </div>
+
+        <div class="grid3">
+          <article class="card">
+            <h3>Languages</h3>
+            <div class="pillRow">
+              <span class="pill">Python</span>
+              <span class="pill">Java</span>
+              <span class="pill">Go</span>
+              <span class="pill">SQL</span>
+              <span class="pill">JavaScript / TypeScript</span>
+              <span class="pill">C/C++</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Backend & Data</h3>
+            <div class="pillRow">
+              <span class="pill">Spring Boot</span>
+              <span class="pill">Django</span>
+              <span class="pill">FastAPI</span>
+              <span class="pill">Node.js</span>
+              <span class="pill">PostgreSQL</span>
+              <span class="pill">MySQL</span>
+              <span class="pill">Redis</span>
+              <span class="pill">Cassandra</span>
+              <span class="pill">Kafka</span>
+              <span class="pill">gRPC</span>
+              <span class="pill">REST APIs</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Cloud & DevOps</h3>
+            <div class="pillRow">
+              <span class="pill">AWS (Lambda/S3/EC2/RDS/ECR)</span>
+              <span class="pill">Docker</span>
+              <span class="pill">Kubernetes</span>
+              <span class="pill">Terraform</span>
+              <span class="pill">Helm</span>
+              <span class="pill">Jenkins</span>
+              <span class="pill">Git</span>
+              <span class="pill">Splunk</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="section container">
+        <div class="sectionHead">
+          <h2>Contact</h2>
+          <p>Want to collaborate or chat about backend/data systems?</p>
+        </div>
+
+        <div class="grid2">
+          <article class="card">
+            <h3>Reach me</h3>
+            <p class="muted">
+              Email is best. I typically respond quickly.
+            </p>
+
+            <div class="contactRow">
+              <div class="contactK">Email</div>
+              <a class="contactV" href="mailto:neetuvijayananda@gmail.com">neetuvijayananda@gmail.com</a>
+            </div>
+            <div class="contactRow">
+              <div class="contactK">Phone</div>
+              <a class="contactV" href="tel:+12407561861">+1 (240) 756-1861</a>
+            </div>
+            <div class="contactRow">
+              <div class="contactK">LinkedIn</div>
+              <a
+                class="contactV"
+                href="https://www.linkedin.com/in/neetuvijayananda/"
+                target="_blank"
+                rel="noopener"
+              >
+                linkedin.com/in/neetuvijayananda
+              </a>
+            </div>
+
+            <div class="spacer"></div>
+
+            <a class="btn primary full" href="assets/resume.pdf" target="_blank" rel="noopener">
+              Open Résumé PDF
+            </a>
+          </article>
+
+          <article class="card">
+            <h3>Quick message</h3>
+            <form id="contactForm">
+              <label>
+                <span>Name</span>
+                <input name="name" type="text" placeholder="Your name" required />
+              </label>
+              <label>
+                <span>Email</span>
+                <input name="email" type="email" placeholder="you@example.com" required />
+              </label>
+              <label>
+                <span>Message</span>
+                <textarea
+                  name="message"
+                  rows="5"
+                  placeholder="Tell me what you’re working on…"
+                  required
+                ></textarea>
+              </label>
+
+              <button class="btn primary full" type="submit">Copy message to clipboard</button>
+              <p class="tiny muted">
+                This site is static (GitHub Pages). The button copies your message so you can paste it into email.
+                If you want a real email form, I can wire it up with EmailJS/Formspark/etc.
+              </p>
+            </form>
+          </article>
+        </div>
+      </section>
+
+      <footer class="footer container">
+        <div class="footerLeft">
+          <span class="brandDot sm"></span>
+          <span>© <span id="year"></span> Neetu Vijayananda</span>
+        </div>
+        <div class="footerRight">
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </footer>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="script.js"></script>
+  </body>
 </html>

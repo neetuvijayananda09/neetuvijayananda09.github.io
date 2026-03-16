@@ -1,481 +1,811 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Neetu Vijayananda | Software Engineer</title>
-    <meta
-      name="description"
-      content="Neetu Vijayananda — Software Engineer specializing in cloud-native systems, data engineering, and high-scale backend services."
-    />
-    <meta property="og:title" content="Neetu Vijayananda | Software Engineer" />
-    <meta
-      property="og:description"
-      content="Cloud-native backend • Data engineering • AWS • Kubernetes • Python/Go/Java"
-    />
-    <meta name="theme-color" content="#0b0f1a" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neetu Vijayananda | AI & Software Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #080808;
+            --surface: #111111;
+            --border: #1e1e1e;
+            --text: #f0f0f0;
+            --muted: #666666;
+            --subtle: #333333;
+            --accent: #e8ff59;
+            --accent-dim: rgba(232, 255, 89, 0.08);
+        }
 
-    <link rel="stylesheet" href="styles.css" />
-  </head>
+        [data-theme="light"] {
+            --bg: #f8f6f0;
+            --surface: #ffffff;
+            --border: #e0ddd5;
+            --text: #111111;
+            --muted: #888888;
+            --subtle: #dddddd;
+            --accent: #111111;
+            --accent-dim: rgba(0,0,0,0.04);
+        }
 
-  <body>
-    <!-- Background blobs -->
-    <div class="bg">
-      <div class="blob b1"></div>
-      <div class="blob b2"></div>
-      <div class="blob b3"></div>
-      <div class="grain"></div>
-    </div>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
 
-    <!-- Top nav -->
-    <header class="topbar">
-      <a class="brand" href="#top" aria-label="Home">
-        <span class="brandDot"></span>
-        <span>Neetu</span>
-      </a>
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
 
-      <nav class="nav" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </nav>
+        /* GRAIN OVERLAY */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.4;
+        }
 
-      <div class="topActions">
-        <button id="themeBtn" class="chip" type="button" aria-label="Toggle theme">
-          <span class="chipIcon" aria-hidden="true">☾</span>
-          <span class="chipText">Theme</span>
-        </button>
-        <a class="chip primary" href="assets/resume.pdf" target="_blank" rel="noopener">
-          Download Résumé
-        </a>
-        <button id="menuBtn" class="iconBtn" type="button" aria-label="Open menu">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </header>
+        /* NAV */
+        nav {
+            position: fixed; top: 0; width: 100%;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1.2rem 6%;
+            background: rgba(8,8,8,0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
 
-    <!-- Mobile drawer -->
-    <aside id="drawer" class="drawer" aria-hidden="true">
-      <div class="drawerTop">
-        <span class="drawerTitle">Menu</span>
-        <button id="closeDrawerBtn" class="iconBtn" type="button" aria-label="Close menu">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-      <div class="drawerLinks">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-        <a class="drawerResume" href="assets/resume.pdf" target="_blank" rel="noopener">
-          Download Résumé
-        </a>
-      </div>
-    </aside>
+        [data-theme="light"] nav { background: rgba(248,246,240,0.85); }
 
-    <main id="top">
-      <!-- Hero -->
-      <section class="hero container">
-        <div class="heroLeft">
-          <p class="eyebrow">Software Engineer</p>
-          <h1 class="title">
-            Building <span class="grad">high-scale</span> cloud-native systems &
-            data platforms.
-          </h1>
-          <p class="subtitle">
-            I design fault-tolerant backend services, data pipelines, and APIs that
-            turn complex infrastructure into reliable products.
-          </p>
+        .logo {
+            font-family: 'DM Mono', monospace;
+            font-weight: 500;
+            font-size: 1rem;
+            text-decoration: none;
+            color: var(--text);
+            letter-spacing: 2px;
+        }
 
-          <div class="heroCTA">
-            <a class="btn primary" href="#projects">View Projects</a>
-            <a class="btn" href="#contact">Contact</a>
-          </div>
+        .nav-links { display: flex; align-items: center; gap: 2rem; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--muted);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: color 0.2s;
+            font-weight: 500;
+        }
+        .nav-links a:hover { color: var(--text); }
 
-          <div class="heroMeta">
-            <a href="mailto:neetuvijayananda@gmail.com">neetuvijayananda@gmail.com</a>
-            <span class="dot">•</span>
-            <a href="tel:+12407561861">+1 (240) 756-1861</a>
-            <span class="dot">•</span>
-            <a href="https://www.linkedin.com/in/neetuvijayananda/" target="_blank" rel="noopener">
-              LinkedIn
-            </a>
-          </div>
+        .nav-right { display: flex; align-items: center; gap: 1.2rem; }
+
+        .resume-btn {
+            border: 1px solid var(--border);
+            padding: 0.45rem 1rem;
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.2s;
+            font-family: 'DM Mono', monospace;
+        }
+        .resume-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+        .theme-toggle {
+            cursor: pointer;
+            color: var(--muted);
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .theme-toggle:hover { color: var(--text); }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 0 6% 8%;
+            position: relative;
+        }
+
+        .hero-eyebrow {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.78rem;
+            color: var(--muted);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(3.5rem, 9vw, 7rem);
+            font-weight: 700;
+            letter-spacing: -3px;
+            line-height: 0.95;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 span { color: var(--accent); }
+
+        .typewriter-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: var(--muted);
+            font-weight: 300;
+        }
+
+        .typewriter-line {
+            width: 40px;
+            height: 1px;
+            background: var(--subtle);
+        }
+
+        #typewriter {
+            color: var(--text);
+            font-weight: 500;
+            border-right: 1.5px solid var(--accent);
+            padding-right: 3px;
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 3rem;
+            right: 6%;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--muted);
+            letter-spacing: 2px;
+            writing-mode: vertical-rl;
+            text-transform: uppercase;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 100px 6%;
+            border-top: 1px solid var(--border);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .section-num {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--muted);
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 600;
+            letter-spacing: -1px;
+        }
+
+        /* ABOUT */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            max-width: 1000px;
+        }
+
+        .about-main {
+            font-size: 1.2rem;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .about-main strong { color: var(--text); font-weight: 600; }
+
+        .about-aside { padding-top: 0.5rem; }
+
+        .aside-block { margin-bottom: 2.5rem; }
+
+        .aside-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
+        }
+
+        .aside-value {
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* EXPERIENCE */
+        .exp-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 3rem;
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .exp-item:last-child { border-bottom: none; }
+
+        .exp-meta { padding-top: 0.2rem; }
+
+        .exp-date {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--muted);
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .exp-company {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.3rem;
+        }
+
+        .exp-location {
+            font-size: 0.78rem;
+            color: var(--muted);
+        }
+
+        .exp-content {}
+
+        .exp-role {
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.6rem;
+        }
+
+        .exp-stack {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .bullets { list-style: none; }
+        .bullets li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+        .bullets li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+        .bullets li strong { color: var(--text); font-weight: 600; }
+
+        /* PROJECTS */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: var(--border);
+        }
+
+        .project-card {
+            background: var(--bg);
+            padding: 2.5rem;
+            transition: background 0.2s;
+        }
+
+        .project-card:hover { background: var(--accent-dim); }
+
+        .project-num {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--muted);
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-stack {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--muted);
+            margin-bottom: 1rem;
+        }
+
+        .project-desc {
+            font-size: 0.9rem;
+            color: var(--muted);
+            line-height: 1.65;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--muted);
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+        .project-link:hover { color: var(--accent); }
+
+        /* SKILLS */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 3rem;
+        }
+
+        .skill-group-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+        .tag {
+            font-size: 0.78rem;
+            color: var(--muted);
+            border: 1px solid var(--border);
+            padding: 4px 12px;
+            border-radius: 2px;
+            transition: all 0.2s;
+            font-family: 'DM Mono', monospace;
+        }
+        .tag:hover { color: var(--accent); border-color: var(--accent); }
+
+        /* EDUCATION */
+        .edu-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 3rem;
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .edu-item:last-child { border-bottom: none; }
+
+        .edu-degree { font-size: 1.3rem; font-weight: 600; letter-spacing: -0.3px; margin-bottom: 0.3rem; }
+        .edu-school { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.3rem; }
+        .edu-gpa { font-family: 'DM Mono', monospace; font-size: 0.8rem; color: var(--accent); }
+
+        .pub-section { margin-top: 1.5rem; }
+        .pub-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+        .pub-item { font-size: 0.85rem; margin-bottom: 0.5rem; }
+        .pub-item a { color: var(--muted); text-decoration: underline; text-underline-offset: 3px; transition: color 0.2s; }
+        .pub-item a:hover { color: var(--text); }
+
+        /* CONTACT */
+        .contact-inner { max-width: 600px; }
+        .contact-cta {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 600;
+            letter-spacing: -1px;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+        .contact-cta span { color: var(--accent); }
+
+        .contact-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--muted);
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 1px solid var(--border);
+            padding: 0.6rem 1.2rem;
+            transition: all 0.2s;
+        }
+        .contact-link:hover { border-color: var(--accent); color: var(--accent); }
+
+        footer {
+            padding: 3rem 6%;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-text {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .exp-item { grid-template-columns: 1fr; gap: 1rem; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .edu-item { grid-template-columns: 1fr; gap: 1rem; }
+        }
+    </style>
+</head>
+<body data-theme="dark">
+
+    <nav>
+        <a href="#" class="logo">NV_</a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="nav-right">
+            <div class="theme-toggle" id="theme-btn"><i class="fas fa-sun"></i></div>
+            <a href="Neetu_Vijayananda_Resume.pdf" class="resume-btn" download>↓ Resume</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <p class="hero-eyebrow">Software Developer & AI Engineer</p>
+        <h1>Neetu<br>Vijaya<span>nanda</span></h1>
+        <div class="typewriter-row">
+            <span class="typewriter-line"></span>
+            <span id="typewriter"></span>
+        </div>
+        <span class="hero-scroll">Scroll ↓</span>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="section-header">
+            <span class="section-num">01 /</span>
+            <h2>About</h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-main">
+                <p>I'm a <strong>Software Developer and AI Engineer</strong> with 3+ years of experience building high-scale enterprise systems and production AI workflows.</p>
+                <br>
+                <p>Currently at <strong>Eli Lilly</strong>, I architect full-stack data platforms serving global users, design agentic AI systems, and own cloud infrastructure across AWS and Kubernetes.</p>
+                <br>
+                <p>I care about writing systems that are fast, maintainable, and actually move the needle for the people using them.</p>
+            </div>
+            <div class="about-aside">
+                <div class="aside-block">
+                    <div class="aside-label">Currently</div>
+                    <div class="aside-value">Software Developer @ Eli Lilly<br>Indianapolis, USA</div>
+                </div>
+                <div class="aside-block">
+                    <div class="aside-label">Education</div>
+                    <div class="aside-value">M.S. Computer Science<br>George Mason University, 2025</div>
+                </div>
+                <div class="aside-block">
+                    <div class="aside-label">Interests</div>
+                    <div class="aside-value">Distributed Systems · Agentic AI<br>Developer Tooling · Open Source</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+        <div class="section-header">
+            <span class="section-num">02 /</span>
+            <h2>Experience</h2>
         </div>
 
-        <div class="heroRight" aria-hidden="true">
-          <div class="frame">
-            <div class="frameInner">
-              <div class="ring r1"></div>
-              <div class="ring r2"></div>
-              <div class="ring r3"></div>
-              <div class="stat">
-                <div class="statNum">Millions</div>
-                <div class="statLabel">data points / month processed</div>
-              </div>
-              <div class="stat s2">
-                <div class="statNum">50K+</div>
-                <div class="statLabel">records unified into one platform</div>
-              </div>
-              <div class="stat s3">
-                <div class="statNum">35%</div>
-                <div class="statLabel">latency reduction via indexing</div>
-              </div>
+        <div class="exp-item">
+            <div class="exp-meta">
+                <div class="exp-date">June 2025 — Present</div>
+                <div class="exp-company">Eli Lilly</div>
+                <div class="exp-location">USA</div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- About -->
-      <section id="about" class="section container">
-        <div class="sectionHead">
-          <h2>About</h2>
-          <p>
-            Software Engineer specializing in high-scale enterprise systems,
-            cloud-native architecture, and data engineering. :contentReference[oaicite:1]{index=1}
-          </p>
+            <div class="exp-content">
+                <div class="exp-role">Software Developer</div>
+                <div class="exp-stack">TypeScript · React · Python · Go · PostgreSQL · PostGIS · gRPC · GraphQL · AWS · Kubernetes · Terraform · AEM</div>
+                <ul class="bullets">
+                    <li>Built and scaled a <strong>public-facing data platform</strong> serving global users across multiple languages, achieving <strong>99.9% uptime</strong> after migrating legacy infrastructure to a modern stack and reducing page load times by <strong>35%</strong> under GxP compliance.</li>
+                    <li>Engineered <strong>geospatial search</strong> enabling high-performance proximity queries and interactive mapping across <strong>millions of data points</strong>.</li>
+                    <li>Architected high-concurrency <strong>GraphQL APIs</strong> handling production-scale traffic, leading technical design decisions around query optimization and schema structure.</li>
+                    <li>Designed a scalable <strong>ETL pipeline</strong> consolidating molecular data from <strong>10+ R&D teams</strong>, reducing redundancy by <strong>25%</strong> and cutting data-retrieval cycles by <strong>2 days per sprint</strong>.</li>
+                    <li>Built an <strong>enterprise agentic AI system</strong> using LLMs to synthesize data across Splunk, Confluence, Jira, and GitHub — automating <strong>40%</strong> of internal support queries and saving <strong>15+ hours</strong> weekly.</li>
+                    <li>Owned <strong>CI/CD pipeline</strong> configuration via Jenkins and Terraform, standardizing deployment workflows across teams.</li>
+                    <li>Implemented enterprise-grade <strong>RBAC</strong> enforcing HIPAA/GDPR compliance across distributed internal platforms.</li>
+                </ul>
+            </div>
         </div>
 
-        <div class="grid2">
-          <article class="card">
-            <h3>What I do</h3>
-            <ul class="bullets">
-              <li>Distributed backend services (Python/Go/Java) with reliability focus</li>
-              <li>Data platforms, ETL pipelines, streaming & operational analytics</li>
-              <li>Cloud & DevOps automation: AWS, Kubernetes, Terraform, CI/CD</li>
-              <li>API design: REST, gRPC, auth patterns, performance tuning</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3>Highlights</h3>
-            <div class="pillRow">
-              <span class="pill">AWS</span>
-              <span class="pill">Kubernetes</span>
-              <span class="pill">Terraform</span>
-              <span class="pill">Python</span>
-              <span class="pill">Go</span>
-              <span class="pill">Java</span>
-              <span class="pill">PostgreSQL</span>
-              <span class="pill">MySQL</span>
-              <span class="pill">Kafka</span>
-              <span class="pill">gRPC</span>
-              <span class="pill">CI/CD</span>
+        <div class="exp-item">
+            <div class="exp-meta">
+                <div class="exp-date">Aug 2022 — Aug 2023</div>
+                <div class="exp-company">Karunadu Technologies</div>
+                <div class="exp-location">India · Part-Time</div>
             </div>
-
-            <div class="mini">
-              <div class="miniK">Location</div>
-              <div class="miniV">USA (open to opportunities)</div>
-              <div class="miniK">Focus</div>
-              <div class="miniV">Backend • Data • Cloud</div>
+            <div class="exp-content">
+                <div class="exp-role">Software Engineer</div>
+                <div class="exp-stack">Python · MySQL · Redis · AWS EC2 · AWS RDS · Docker</div>
+                <ul class="bullets">
+                    <li>Architected and developed <strong>RESTful APIs</strong> for a service request management platform — reducing average request resolution time by <strong>~30%</strong>.</li>
+                    <li>Implemented <strong>Redis caching</strong> over MySQL, cutting database load by <strong>~40%</strong> and improving API response times under peak traffic by <strong>20%</strong>.</li>
+                    <li>Containerized backend services on <strong>AWS</strong> with Docker, enabling consistent and scalable releases across all environments.</li>
+                </ul>
             </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- Experience -->
-      <section id="experience" class="section container">
-        <div class="sectionHead">
-          <h2>Experience</h2>
-          <p>Recent roles and impact. :contentReference[oaicite:2]{index=2}</p>
         </div>
 
-        <div class="timeline">
-          <div class="tItem card">
-            <div class="tTop">
-              <div>
-                <h3>Eli Lilly — Software Developer</h3>
-                <p class="muted">June 2025 – Present • USA</p>
-              </div>
-              <div class="tags">
-                <span class="tag">Python</span>
-                <span class="tag">Go</span>
-                <span class="tag">AWS</span>
-                <span class="tag">Kubernetes</span>
-              </div>
+        <div class="exp-item">
+            <div class="exp-meta">
+                <div class="exp-date">Apr 2021 — Jul 2022</div>
+                <div class="exp-company">Compsoft Technologies</div>
+                <div class="exp-location">India · Intern</div>
             </div>
-            <ul class="bullets">
-              <li>Designed distributed backend services processing <b>millions</b> of data points monthly.</li>
-              <li>Built a code analysis tool to automate technical docs generation (reduced manual effort ~40%).</li>
-              <li>Architected a centralized Data Intelligence Platform, unifying <b>50K+</b> records.</li>
-              <li>Improved query latency by ~35% using indexing and database tuning.</li>
-              <li>Automated CI/CD & infra with Helm, Terraform, and Kubernetes (weeks → hours release cycle).</li>
-              <li>Integrated Splunk & dashboards to cut troubleshooting time by ~30%.</li>
-            </ul>
-          </div>
-
-          <div class="tItem card">
-            <div class="tTop">
-              <div>
-                <h3>Karunadu Technologies — Software Engineer</h3>
-                <p class="muted">Aug 2022 – May 2023 • India</p>
-              </div>
-              <div class="tags">
-                <span class="tag">Django</span>
-                <span class="tag">FastAPI</span>
-                <span class="tag">SQL</span>
-                <span class="tag">AWS</span>
-              </div>
+            <div class="exp-content">
+                <div class="exp-role">Full-Stack Developer Intern</div>
+                <div class="exp-stack">Java · Spring Boot · TypeScript · React · Redux · SQL</div>
+                <ul class="bullets">
+                    <li>Developed backend services for an internal operations platform handling orders, inventory, and reporting via <strong>Spring Boot</strong> service layers and SQL persistence.</li>
+                    <li>Built a reusable <strong>React</strong> component library with Redux state management, accelerating feature delivery by <strong>~30%</strong> and reducing page load times by <strong>35%</strong>.</li>
+                    <li>Maintained <strong>85%+</strong> unit test coverage, significantly lowering production bug rates.</li>
+                </ul>
             </div>
-            <ul class="bullets">
-              <li>Built a high-throughput document search engine; reduced lookup times by ~40% (500K+ records).</li>
-              <li>Designed REST APIs processing 50K+ daily transactions; improved response times ~35%.</li>
-              <li>Migrated workflows to AWS with auto-scaling for peak reliability.</li>
-              <li>Implemented Jenkins pipelines; reduced manual QA cycles by ~60%.</li>
-            </ul>
-          </div>
-
-          <div class="tItem card">
-            <div class="tTop">
-              <div>
-                <h3>Compsoft Technologies — Full-Stack Developer Intern</h3>
-                <p class="muted">Jan 2022 – Jul 2022 • India</p>
-              </div>
-              <div class="tags">
-                <span class="tag">React</span>
-                <span class="tag">Redux</span>
-                <span class="tag">TypeScript</span>
-                <span class="tag">Java</span>
-              </div>
-            </div>
-            <ul class="bullets">
-              <li>Developed reusable React components and standardized Redux patterns (faster delivery ~30%).</li>
-              <li>Improved UX via lazy loading; reduced page load times by ~35%.</li>
-              <li>Achieved 85%+ unit test coverage, reducing production bug rates.</li>
-            </ul>
-          </div>
         </div>
-      </section>
+    </section>
 
-      <!-- Projects -->
-      <section id="projects" class="section container">
-        <div class="sectionHead">
-          <h2>Projects</h2>
-          <p>Selected builds and systems work. :contentReference[oaicite:3]{index=3}</p>
+    <!-- PROJECTS -->
+    <section id="projects">
+        <div class="section-header">
+            <span class="section-num">03 /</span>
+            <h2>Projects</h2>
         </div>
-
-        <div class="cards3">
-          <article class="card project">
-            <div class="projectTop">
-              <h3>Enterprise Helpdesk Ticketing System</h3>
-              <span class="badge">Spring Boot</span>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-num">P.01</div>
+                <div class="project-name">Distributed Task Queue System</div>
+                <div class="project-stack">Python · FastAPI · Redis · PostgreSQL · Docker · Kubernetes</div>
+                <div class="project-desc">A distributed task queue with async job scheduling, priority queuing, and worker auto-scaling — handling ~5,000 concurrent tasks with Redis-backed state management and fault-tolerant PostgreSQL persistence.</div>
+                <a href="https://github.com/neetuvijayananda09" target="_blank" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
             </div>
-            <p class="muted">
-              Multi-tenant ticketing platform supporting 10K+ active tickets with secure APIs.
-            </p>
-            <ul class="bullets">
-              <li>JWT authentication + RBAC for privacy across departments</li>
-              <li>Redis caching to reduce database load and improve response times</li>
-              <li>Docker + Jenkins pipeline for repeatable releases</li>
-            </ul>
-            <div class="projectTags">
-              <span class="pill">Java</span><span class="pill">MySQL</span><span class="pill">Redis</span><span class="pill">Docker</span>
+            <div class="project-card">
+                <div class="project-num">P.02</div>
+                <div class="project-name">Real-Time Collaboration Platform</div>
+                <div class="project-stack">React · Next.js · Node.js · PostgreSQL · Redis · AWS</div>
+                <div class="project-desc">A real-time collaboration platform with live document editing, presence tracking, and conflict resolution via operational transforms — supporting ~50 concurrent users with 100ms sync latency using WebSockets and Redis pub/sub.</div>
+                <a href="https://github.com/neetuvijayananda09" target="_blank" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
             </div>
-            <div class="projectLinks">
-              <a class="link" href="#" onclick="return false;" aria-disabled="true" title="Add your GitHub link">
-                GitHub (add link)
-              </a>
-              <a class="link" href="#" onclick="return false;" aria-disabled="true" title="Add demo link if any">
-                Live Demo (optional)
-              </a>
+            <div class="project-card">
+                <div class="project-num">P.03</div>
+                <div class="project-name">Ticket Distributor</div>
+                <div class="project-stack">Java · Spring Boot · MySQL</div>
+                <div class="project-desc">A multi-tenant ticketing platform supporting 10K+ tickets with secure JWT authentication and role-based access control.</div>
+                <a href="https://github.com/neetuvijayananda09/Ticket-distributer" target="_blank" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
             </div>
-          </article>
-
-          <article class="card project">
-            <div class="projectTop">
-              <h3>Real-Time Health Data Streaming Pipeline</h3>
-              <span class="badge">Kafka</span>
+            <div class="project-card">
+                <div class="project-num">P.04</div>
+                <div class="project-name">Real-Time Data Streaming</div>
+                <div class="project-stack">Kafka · Python · PostgreSQL · AWS</div>
+                <div class="project-desc">Fault-tolerant data ingestion pipeline using Apache Kafka, processing 5K+ events/day with real-time consistency and reliable delivery guarantees.</div>
+                <a href="https://github.com/neetuvijayananda09/data-streaming" target="_blank" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
             </div>
-            <p class="muted">
-              Fault-tolerant ingestion pipeline processing 5K+ events/day with near real-time consistency.
-            </p>
-            <ul class="bullets">
-              <li>Kafka ingestion, secure storage in S3 + PostgreSQL</li>
-              <li>Scalable backend architecture and secure retrieval</li>
-              <li>Designed for resiliency and operational visibility</li>
-            </ul>
-            <div class="projectTags">
-              <span class="pill">Python</span><span class="pill">Django</span><span class="pill">Kafka</span><span class="pill">AWS S3</span><span class="pill">PostgreSQL</span>
-            </div>
-            <div class="projectLinks">
-              <a class="link" href="#" onclick="return false;" aria-disabled="true" title="Add your GitHub link">
-                GitHub (add link)
-              </a>
-              <a class="link" href="#" onclick="return false;" aria-disabled="true" title="Add architecture doc link if any">
-                Case Study (optional)
-              </a>
-            </div>
-          </article>
-
-          <article class="card project">
-            <div class="projectTop">
-              <h3>Code Analysis → Auto Documentation Tool</h3>
-              <span class="badge">Automation</span>
-            </div>
-            <p class="muted">
-              Parses source code and generates technical documentation automatically.
-            </p>
-            <ul class="bullets">
-              <li>Reduced documentation manual effort by ~40%</li>
-              <li>Designed for maintainability and team reuse</li>
-              <li>Works alongside CI workflows</li>
-            </ul>
-            <div class="projectTags">
-              <span class="pill">Python</span><span class="pill">CI/CD</span><span class="pill">Parsing</span>
-            </div>
-            <div class="projectLinks">
-              <a class="link" href="#" onclick="return false;" aria-disabled="true" title="Add your GitHub link">
-                GitHub (add link)
-              </a>
-              <a class="link" href="#" onclick="return false;" aria-disabled="true" title="Add details link if any">
-                Details (optional)
-              </a>
-            </div>
-          </article>
         </div>
-      </section>
+    </section>
 
-      <!-- Skills -->
-      <section id="skills" class="section container">
-        <div class="sectionHead">
-          <h2>Skills</h2>
-          <p>Tools and technologies I work with. :contentReference[oaicite:4]{index=4}</p>
+    <!-- SKILLS -->
+    <section id="skills">
+        <div class="section-header">
+            <span class="section-num">04 /</span>
+            <h2>Skills</h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-group">
+                <div class="skill-group-label">Languages</div>
+                <div class="skill-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Java</span>
+                    <span class="tag">Go</span>
+                    <span class="tag">TypeScript</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">C/C++</span>
+                    <span class="tag">SQL</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <div class="skill-group-label">AI & ML</div>
+                <div class="skill-tags">
+                    <span class="tag">LLMs</span>
+                    <span class="tag">Agentic AI</span>
+                    <span class="tag">RAG</span>
+                    <span class="tag">LangChain</span>
+                    <span class="tag">PyTorch</span>
+                    <span class="tag">Pinecone</span>
+                    <span class="tag">MCP</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <div class="skill-group-label">Backend & Data</div>
+                <div class="skill-tags">
+                    <span class="tag">FastAPI</span>
+                    <span class="tag">Spring Boot</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">Django</span>
+                    <span class="tag">gRPC</span>
+                    <span class="tag">GraphQL</span>
+                    <span class="tag">Kafka</span>
+                    <span class="tag">Redis</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <div class="skill-group-label">Frontend</div>
+                <div class="skill-tags">
+                    <span class="tag">React.js</span>
+                    <span class="tag">Next.js</span>
+                    <span class="tag">Redux</span>
+                    <span class="tag">WebSockets</span>
+                    <span class="tag">HTML5</span>
+                    <span class="tag">CSS3</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <div class="skill-group-label">Databases</div>
+                <div class="skill-tags">
+                    <span class="tag">PostgreSQL</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">MongoDB</span>
+                    <span class="tag">Cassandra</span>
+                    <span class="tag">Elasticsearch</span>
+                    <span class="tag">PostGIS</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <div class="skill-group-label">Cloud & DevOps</div>
+                <div class="skill-tags">
+                    <span class="tag">AWS</span>
+                    <span class="tag">Kubernetes</span>
+                    <span class="tag">Docker</span>
+                    <span class="tag">Terraform</span>
+                    <span class="tag">Helm</span>
+                    <span class="tag">Jenkins</span>
+                    <span class="tag">CI/CD</span>
+                    <span class="tag">Git</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+        <div class="section-header">
+            <span class="section-num">05 /</span>
+            <h2>Education</h2>
         </div>
 
-        <div class="grid3">
-          <article class="card">
-            <h3>Languages</h3>
-            <div class="pillRow">
-              <span class="pill">Python</span>
-              <span class="pill">Java</span>
-              <span class="pill">Go</span>
-              <span class="pill">SQL</span>
-              <span class="pill">JavaScript / TypeScript</span>
-              <span class="pill">C/C++</span>
+        <div class="edu-item">
+            <div class="exp-meta">
+                <div class="exp-date">May 2025</div>
+                <div class="exp-company">George Mason University</div>
+                <div class="exp-location">USA</div>
             </div>
-          </article>
-
-          <article class="card">
-            <h3>Backend & Data</h3>
-            <div class="pillRow">
-              <span class="pill">Spring Boot</span>
-              <span class="pill">Django</span>
-              <span class="pill">FastAPI</span>
-              <span class="pill">Node.js</span>
-              <span class="pill">PostgreSQL</span>
-              <span class="pill">MySQL</span>
-              <span class="pill">Redis</span>
-              <span class="pill">Cassandra</span>
-              <span class="pill">Kafka</span>
-              <span class="pill">gRPC</span>
-              <span class="pill">REST APIs</span>
+            <div>
+                <div class="edu-degree">M.S. in Computer Science</div>
+                <div class="edu-gpa">GPA: 3.8 / 4.0</div>
             </div>
-          </article>
-
-          <article class="card">
-            <h3>Cloud & DevOps</h3>
-            <div class="pillRow">
-              <span class="pill">AWS (Lambda/S3/EC2/RDS/ECR)</span>
-              <span class="pill">Docker</span>
-              <span class="pill">Kubernetes</span>
-              <span class="pill">Terraform</span>
-              <span class="pill">Helm</span>
-              <span class="pill">Jenkins</span>
-              <span class="pill">Git</span>
-              <span class="pill">Splunk</span>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact" class="section container">
-        <div class="sectionHead">
-          <h2>Contact</h2>
-          <p>Want to collaborate or chat about backend/data systems?</p>
         </div>
 
-        <div class="grid2">
-          <article class="card">
-            <h3>Reach me</h3>
-            <p class="muted">
-              Email is best. I typically respond quickly.
-            </p>
-
-            <div class="contactRow">
-              <div class="contactK">Email</div>
-              <a class="contactV" href="mailto:neetuvijayananda@gmail.com">neetuvijayananda@gmail.com</a>
+        <div class="edu-item">
+            <div class="exp-meta">
+                <div class="exp-date">May 2023</div>
+                <div class="exp-company">Visvesvaraya Technological University</div>
+                <div class="exp-location">India</div>
             </div>
-            <div class="contactRow">
-              <div class="contactK">Phone</div>
-              <a class="contactV" href="tel:+12407561861">+1 (240) 756-1861</a>
+            <div>
+                <div class="edu-degree">B.E. in Computer Science & Engineering</div>
+                <div class="edu-gpa">GPA: 3.9 / 4.0</div>
+                <div class="pub-section">
+                    <div class="pub-label">Publications</div>
+                    <div class="pub-item">→ <a href="https://www.milestoneresearch.in/JOURNALS/index.php/IJHCI/article/view/89" target="_blank">AI-Driven Phishing Detection — IJHCI 2023</a></div>
+                    <div class="pub-item">→ <a href="https://www.milestoneresearch.in/JOURNALS/index.php/IJHCI/article/view/94" target="_blank">Facial Recognition Smart Attendance — IJHCI 2023</a></div>
+                </div>
             </div>
-            <div class="contactRow">
-              <div class="contactK">LinkedIn</div>
-              <a
-                class="contactV"
-                href="https://www.linkedin.com/in/neetuvijayananda/"
-                target="_blank"
-                rel="noopener"
-              >
-                linkedin.com/in/neetuvijayananda
-              </a>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="section-header">
+            <span class="section-num">06 /</span>
+            <h2>Contact</h2>
+        </div>
+        <div class="contact-inner">
+            <div class="contact-cta">Let's build something<br><span>worth shipping.</span></div>
+            <div class="contact-links">
+                <a href="mailto:neetuvijayananda@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> Email</a>
+                <a href="https://www.linkedin.com/in/neetuvijayananda/" target="_blank" class="contact-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/neetuvijayananda09" target="_blank" class="contact-link"><i class="fab fa-github"></i> GitHub</a>
             </div>
-
-            <div class="spacer"></div>
-
-            <a class="btn primary full" href="assets/resume.pdf" target="_blank" rel="noopener">
-              Open Résumé PDF
-            </a>
-          </article>
-
-          <article class="card">
-            <h3>Quick message</h3>
-            <form id="contactForm">
-              <label>
-                <span>Name</span>
-                <input name="name" type="text" placeholder="Your name" required />
-              </label>
-              <label>
-                <span>Email</span>
-                <input name="email" type="email" placeholder="you@example.com" required />
-              </label>
-              <label>
-                <span>Message</span>
-                <textarea
-                  name="message"
-                  rows="5"
-                  placeholder="Tell me what you’re working on…"
-                  required
-                ></textarea>
-              </label>
-
-              <button class="btn primary full" type="submit">Copy message to clipboard</button>
-              <p class="tiny muted">
-                This site is static (GitHub Pages). The button copies your message so you can paste it into email.
-                If you want a real email form, I can wire it up with EmailJS/Formspark/etc.
-              </p>
-            </form>
-          </article>
         </div>
-      </section>
+    </section>
 
-      <footer class="footer container">
-        <div class="footerLeft">
-          <span class="brandDot sm"></span>
-          <span>© <span id="year"></span> Neetu Vijayananda</span>
-        </div>
-        <div class="footerRight">
-          <a href="#top">Back to top ↑</a>
-        </div>
-      </footer>
-    </main>
+    <footer>
+        <span class="footer-text">Neetu Vijayananda © 2026</span>
+        <span class="footer-text">Built with care.</span>
+    </footer>
 
-    <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script>
+        // TYPEWRITER
+        const words = ["a Software Developer.", "an AI Engineer.", "a Systems Builder.", "a Problem Solver."];
+        let i = 0, j = 0, isDeleting = false;
 
-    <script src="script.js"></script>
-  </body>
+        function type() {
+            const currentWord = words[i];
+            const display = isDeleting ? currentWord.substring(0, j - 1) : currentWord.substring(0, j + 1);
+            document.getElementById("typewriter").textContent = display;
+            j = isDeleting ? j - 1 : j + 1;
+
+            if (!isDeleting && j === currentWord.length) {
+                isDeleting = true;
+                setTimeout(type, 2200);
+            } else if (isDeleting && j === 0) {
+                isDeleting = false;
+                i = (i + 1) % words.length;
+                setTimeout(type, 400);
+            } else {
+                setTimeout(type, isDeleting ? 35 : 75);
+            }
+        }
+
+        // THEME TOGGLE
+        const themeBtn = document.getElementById('theme-btn');
+        const icon = themeBtn.querySelector('i');
+        themeBtn.addEventListener('click', () => {
+            const isDark = document.body.getAttribute('data-theme') === 'dark';
+            document.body.setAttribute('data-theme', isDark ? 'light' : 'dark');
+            icon.classList.replace(isDark ? 'fa-sun' : 'fa-moon', isDark ? 'fa-moon' : 'fa-sun');
+        });
+
+        document.addEventListener('DOMContentLoaded', type);
+    </script>
+</body>
 </html>
